@@ -93,12 +93,13 @@ module.exports = {
     devtool: isProd ? "source-map" : "cheap-module-source-map",
     context: sourcePath,
     entry: {
-        bootstrap: [
+        app: [
+            "font-awesome/css/font-awesome.min.css",
             "bootstrap/dist/css/bootstrap.css",
             "bootstrap",
+            ...jsEntry,
+            "assets/styles/app.css"
         ],
-        js: jsEntry,
-        css: "assets/styles/app.css",
         vendor: [
             "react",
             "react-dom"
