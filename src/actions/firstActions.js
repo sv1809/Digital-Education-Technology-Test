@@ -1,4 +1,4 @@
-import { FIRST_DATA_LOADED } from "../constants/actionTypes";
+import { FIRST_DATA_LOADED, SET_FISR_IS_ARCHIVED } from "../constants/actionTypes";
 import Card from "../model/Card";
 
 export const getFirstData = () => dispatch => Promise.resolve(mock)
@@ -6,7 +6,13 @@ export const getFirstData = () => dispatch => Promise.resolve(mock)
 
 const firstDataLoaded = data => ({
     type: FIRST_DATA_LOADED,
-    data
+    data,
+});
+
+export const changeIsArchive = (id, value) => ({
+    type: SET_FISR_IS_ARCHIVED,
+    id,
+    value,
 });
 
 const colors = ["#B80000", "#DB3E00", "#FCCB00", "#008B02", "#006B76", "#1273DE", "#004DCF", "#5300EB",
