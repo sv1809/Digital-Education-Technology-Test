@@ -6,4 +6,4 @@
 Запустить:
 `npm run dev`
 
-Открыть в браузере <a href="http://localhost:3000/" target="_blank">localhost:3000/</a>
+Открыть в браузере [http://localhost:3000/](http://localhost:3000/)
