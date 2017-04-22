@@ -8,9 +8,11 @@ const Cards = ({ cards, match }) => (<div className={styles.cards}>
         cards.map(card => (<NavLink
             key={card.id}
             to={`${match.url}/${card.id}`}
-            className={styles.card}
-            style={{ backgroundColor: card.color }}>
-            <span>{card.title}</span>
+            className={styles.card + " col-lg-2 col-md-3 col-sm-5 col-xs-10"}>
+            <div className={styles.cardColor} style={{ backgroundColor: card.color }}></div>
+            <div className={styles.cardData}>
+                <div className={styles.cardTitle}>{card.title}</div>
+            </div>
         </NavLink>))
     }
 </div>);

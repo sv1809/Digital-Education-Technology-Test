@@ -2,3 +2,50 @@
     height: 100%;
     overflow: scroll;
 }
+
+.list {
+    height: 100%;
+}
+
+.card {
+    margin: 10px;
+    height: 60px;
+    box-shadow: rgba(0, 0, 0, .6) 1px 1px 3px 0px;
+    background-color: #fff;
+    padding-left: 0;
+    display: flex;
+    color: inherit;
+    cursor: pointer;
+}
+
+.card:hover,
+.card:active,
+.card:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, .6) 1px 1px 3px 1px;
+}
+
+.cardColor {
+    height: 100%;
+    width: 30px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.cardData {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cardTitle {
+    display: flex;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
