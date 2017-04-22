@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 
 import { getFirstData } from "../actions/firstActions";
 import Page from "../components/Page";
+import Card from "./Card";
 
 class FirstConteiner extends React.Component {
     static propsTypes = {
@@ -25,6 +26,7 @@ class FirstConteiner extends React.Component {
     render = () => {
         return (<div style={{ height: "100%" }}>
             <Route exact path={this.props.match.url} render={() => <Page data={this.props.data} match={this.props.match} />} />
+            <Route path={`${this.props.match.url}/:id`} component={Card}/>
         </div>);
     }
 }

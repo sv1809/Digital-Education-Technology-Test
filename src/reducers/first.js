@@ -4,6 +4,7 @@ const initialState = {
     title: "",
     description: "",
     items: [],
+    colors: [],
 };
 
 export default (state = initialState, action) => {

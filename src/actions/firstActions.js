@@ -1,7 +1,5 @@
 import { FIRST_DATA_LOADED } from "../constants/actionTypes";
-import RedCard from "../model/RedCard";
-import BlueCard from "../model/BlueCard";
-import GreenCard from "../model/GreenCard";
+import Card from "../model/Card";
 
 export const getFirstData = () => dispatch => Promise.resolve(mock)
     .then(data => dispatch(firstDataLoaded(data)));
@@ -11,39 +9,32 @@ const firstDataLoaded = data => ({
     data
 });
 
+const colors = ["#B80000", "#DB3E00", "#FCCB00", "#008B02", "#006B76", "#1273DE", "#004DCF", "#5300EB",
+    "#EB9694", "#FAD0C3", "#FEF3BD", "#C1E1C5", "#BEDADC", "#C4DEF6", "#BED3F3", "#D4C4FB"];
+
 const mock = {
     title: "Данные 1",
     description: "Тут <i>будет</i> описание <b>Данных 1</b>",
     items: getItems(),
+    colors
 };
 
 function getItems() {
     const res = [];
     for (let i = 0; i < 253; i++) {
-        const cardType = getRandomIntInclusive(0, 2);
-        let card;
-        if (cardType === 0) {
-            card = new RedCard({
-                id: i,
-                title: "carn number " + i,
-                isArchive: !!getRandomIntInclusive(0, 3)
-            });
-        } else if (cardType === 1) {
-            card = new GreenCard({
-                id: i,
-                title: "carn number " + i,
-                isArchive: !!getRandomIntInclusive(0, 3)
-            });
-        } else if (cardType === 2) {
-            card = new BlueCard({
-                id: i,
-                title: "carn number " + i,
-                isArchive: !!getRandomIntInclusive(0, 3)
-            });
-        }
+        const card = new Card({
+            id: i,
+            title: "card number " + i,
+            isArchive: !!getRandomIntInclusive(0, 3),
+            color: getCardColor(0, 2),
+        });
         res.push(card);
     }
     return res;
+}
+
+function getCardColor() {
+    return colors[getRandomIntInclusive(0, colors.length - 1)];
 }
 
 function getRandomIntInclusive(min, max) {
