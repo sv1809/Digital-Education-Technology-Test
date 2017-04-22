@@ -16,7 +16,7 @@ class SideMenuConteiner extends React.Component {
     componentWillMount = () => this.props.getMenuItems()
 
     render = () => {
-        return <SideMenu isVisible={this.props.isVisible} items={this.props.items} showHide={this.props.showHide} />;
+        return <SideMenu items={this.props.items} />;
     }
 }
 
