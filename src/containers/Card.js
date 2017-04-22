@@ -11,7 +11,7 @@ class CardConteiner extends React.Component {
         card: PropTypes.shape({
             id: PropTypes.number,
             title: PropTypes.string,
-            isArchive: PropTypes.bool,
+            isArchived: PropTypes.bool,
             color: PropTypes.string
         })
     }

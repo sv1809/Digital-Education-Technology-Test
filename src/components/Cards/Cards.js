@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import * as styles from "./Cards.module.css";
 
-const Cards = ({ cards, match, changeIsArchive }) => (<div className={styles.cards}>
+const Cards = ({ cards, match, changeIsArchived }) => (<div className={styles.cards}>
     {
         cards.map(card => (<NavLink
             key={card.id}
@@ -13,7 +13,7 @@ const Cards = ({ cards, match, changeIsArchive }) => (<div className={styles.car
             <div className={styles.cardData}>
                 <div className={styles.cardTitle}>{card.title}</div>
                 <label className={styles.isArchiveSwitcher} onClick={e => e.stopPropagation()}>
-                    <input type="checkbox" checked={card.isArchive} onChange={e => changeIsArchive(card.id, e.target.checked)} />
+                    <input type="checkbox" checked={card.isArchived} onChange={e => changeIsArchived(card.id, e.target.checked)} />
                     Арихвная
                     </label>
             </div>
@@ -25,10 +25,10 @@ Cards.propTypes = {
     cards: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number,
         title: PropTypes.string,
-        isArchive: PropTypes.bool,
+        isArchived: PropTypes.bool,
         color: PropTypes.string
     })),
-    changeIsArchive: PropTypes.func,
+    changeIsArchived: PropTypes.func,
 };
 
 export default Cards;

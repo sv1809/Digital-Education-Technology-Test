@@ -1,0 +1,50 @@
+.filter {
+    margin: 10px 0;
+    padding: 0 0 10px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.colorActive {
+    border: 3px solid #999;
+}
+
+.cardNumberText {
+    margin-right: 10px;
+}
+
+.section {
+    margin: 10px 0;
+}
+
+.section:first-child {
+    margin-top: 0;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.isArchivedLabel {
+    font-weight: normal;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.isArchivedLabel:last-child {
+    margin-right: 0;
+}
+
+.isArchivedLabel .radio {
+    margin-right: 5px;
+}

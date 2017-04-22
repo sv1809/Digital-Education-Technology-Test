@@ -1,4 +1,10 @@
-import { FIRST_DATA_LOADED, SET_FISR_IS_ARCHIVED } from "../constants/actionTypes";
+import {
+    FIRST_DATA_LOADED,
+    SET_FISR_IS_ARCHIVED,
+    ADD_REMOVE_FIRST_FILTER_COLOR,
+    SET_FIRST_FILTER_ARCHIVE,
+    SET_FIRST_FILTER_TEXT
+} from "../constants/actionTypes";
 import Card from "../model/Card";
 
 export const getFirstData = () => dispatch => Promise.resolve(mock)
@@ -9,9 +15,24 @@ const firstDataLoaded = data => ({
     data,
 });
 
-export const changeIsArchive = (id, value) => ({
+export const changeIsArchived = (id, value) => ({
     type: SET_FISR_IS_ARCHIVED,
     id,
+    value,
+});
+
+export const addRemoveFIlterColor = value => ({
+    type: ADD_REMOVE_FIRST_FILTER_COLOR,
+    value,
+});
+
+export const setFilterArchive = value => ({
+    type: SET_FIRST_FILTER_ARCHIVE,
+    value,
+});
+
+export const setFilterText = value => ({
+    type: SET_FIRST_FILTER_TEXT,
     value,
 });
 
@@ -30,8 +51,8 @@ function getItems() {
     for (let i = 0; i < 253; i++) {
         const card = new Card({
             id: i,
-            title: "card number " + i,
-            isArchive: !!getRandomIntInclusive(0, 3),
+            title: "Карточка №" + i,
+            isArchived: !!getRandomIntInclusive(0, 3),
             color: getCardColor(0, 2),
         });
         res.push(card);

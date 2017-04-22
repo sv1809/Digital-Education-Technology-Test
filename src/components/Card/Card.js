@@ -7,7 +7,7 @@ const Card = ({ card }) => (<div className={styles.cardWrapper}>
         <div className={styles.cardColor} style={{ backgroundColor: card.color }}></div>
         <div className={styles.cardData}>
             <h3 className={styles.cardTitle}>{card.title}</h3>
-            {card.isArchive && <span className={styles.cardArchive}>Архивная</span>}
+            {card.isArchived && <span className={styles.cardArchive}>Архивная</span>}
         </div>
     </div>
 </div>);
@@ -16,7 +16,7 @@ Card.propTypes = {
     card: PropTypes.shape({
         id: PropTypes.number,
         title: PropTypes.string,
-        isArchive: PropTypes.bool,
+        isArchived: PropTypes.bool,
         color: PropTypes.string
     })
 };
