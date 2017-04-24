@@ -9,14 +9,29 @@ import history from "./history";
 const isProd = process.env.NODE_ENV === "production";
 
 const configureStore = preloadedState => {
-    const middleware = isProd ? applyMiddleware(thunk, routerMiddleware(history)) : compose(
-        applyMiddleware(
-            thunk,
-            createLogger(),
-            routerMiddleware(history)
-        ),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
+    let middleware;
+    if (isProd) {
+        middleware = applyMiddleware(thunk, routerMiddleware(history));
+    } else {
+        if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+            middleware = compose(
+                applyMiddleware(
+                    thunk,
+                    createLogger(),
+                    routerMiddleware(history)
+                ),
+                window.__REDUX_DEVTOOLS_EXTENSION__()
+            );
+        } else {
+            middleware = compose(
+                applyMiddleware(
+                    thunk,
+                    createLogger(),
+                    routerMiddleware(history)
+                )
+            );
+        }
+    }
     const store = createStore(
         reducers,
         preloadedState,
